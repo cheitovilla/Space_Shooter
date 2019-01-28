@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
 
+    public GameObject shot;
+    public Transform shotContent;
+    public float fireRate;
+    public float nextFire;
+
     public float xMin, xMax, zMin, zMax;
     private Rigidbody rb;
 
@@ -11,9 +16,18 @@ public class Player : MonoBehaviour {
 	void Start () {
         rb = GetComponent<Rigidbody>();
 	}
-	
-	// Update is called once per frame
-	void FixedUpdate () {
+
+    private void Update()
+    {
+        if (Input.GetButton("Fire1") && Time.time > nextFire)
+        {
+            nextFire = Time.time + fireRate;
+            Instantiate(shot, shotContent.position, shotContent.rotation);
+        }
+    }
+
+    // Update is called once per frame
+    void FixedUpdate () {
         float h = Input.GetAxis("Horizontal");
         float v = Input.GetAxis("Vertical");
 
