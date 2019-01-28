@@ -9,12 +9,20 @@ public class Player : MonoBehaviour {
     public float fireRate;
     public float nextFire;
 
+    public GameObject asteroid;
+    public Vector3 spawnValues;
+    public int asteroidCount;
+    public float spawnWait;
+    public float starWait;
+    public float waveWait;
+
     public float xMin, xMax, zMin, zMax;
     private Rigidbody rb;
 
 	// Use this for initialization
 	void Start () {
         rb = GetComponent<Rigidbody>();
+        StartCoroutine(CreateAsteroids());
 	}
 
     private void Update()
@@ -39,4 +47,22 @@ public class Player : MonoBehaviour {
 
         rb.rotation = Quaternion.Euler(0.0f, 0.0f, rb.velocity.x * -2);
 	}
+
+    IEnumerator CreateAsteroids()
+    {
+        yield return new WaitForSeconds(starWait);
+        while (true)
+        {
+            for (int i = 0; i < asteroidCount; i++)
+            {
+                Vector3 spawnPosition = new Vector3(Random.Range(-spawnValues.x, spawnValues.x), 5f, 14.7f);
+                Quaternion spawnRotation = Quaternion.identity;
+                Instantiate(asteroid, spawnPosition, spawnRotation);
+                yield return new WaitForSeconds(spawnWait);
+
+            }
+            yield return new WaitForSeconds(waveWait);
+        }
+    }
+
 }

@@ -240,6 +240,12 @@ MonoBehaviour:
   shotContent: {fileID: 955788862}
   fireRate: 0.2
   nextFire: 0.2
+  asteroid: {fileID: 1125403456379730, guid: d439c829b0e23bf4798aac87ee0b3cf1, type: 2}
+  spawnValues: {x: -5, y: 0, z: 17}
+  asteroidCount: 7
+  spawnWait: 0.5
+  starWait: 1
+  waveWait: 2
   xMin: -2.6
   xMax: 2.6
   zMin: -4.3
