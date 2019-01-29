@@ -39,7 +39,7 @@ public class Player : MonoBehaviour {
         float h = Input.GetAxis("Horizontal");
         float v = Input.GetAxis("Vertical");
 
-        Vector3 vector = new Vector3(h, 5f, v);
+        Vector3 vector = new Vector3(h, 7f, v);
         rb.velocity = vector * 10;
 
         rb.position = new Vector3(Mathf.Clamp(rb.position.x, xMin, xMax),
@@ -55,7 +55,7 @@ public class Player : MonoBehaviour {
         {
             for (int i = 0; i < asteroidCount; i++)
             {
-                Vector3 spawnPosition = new Vector3(Random.Range(-spawnValues.x, spawnValues.x), 5f, 14.7f);
+                Vector3 spawnPosition = new Vector3(Random.Range(-spawnValues.x, spawnValues.x), 7.4f, 14.7f);
                 Quaternion spawnRotation = Quaternion.identity;
                 Instantiate(asteroid, spawnPosition, spawnRotation);
                 yield return new WaitForSeconds(spawnWait);
