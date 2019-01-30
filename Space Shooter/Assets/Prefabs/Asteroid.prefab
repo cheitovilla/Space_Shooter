@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 114644896192381330}
   m_Layer: 0
   m_Name: Asteroid
-  m_TagString: Untagged
+  m_TagString: Asteroids
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -166,6 +166,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef434ff1503ab9c43b36669e02adab0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explosion: {fileID: 100000, guid: f75468363e2394440a081e9c175e6c93, type: 2}
+  destruction: {fileID: 100004, guid: 9b26e1efdb8fd4d53b35c3c6b7f50cf5, type: 2}
 --- !u!135 &135794475679971600
 SphereCollider:
   m_ObjectHideFlags: 1

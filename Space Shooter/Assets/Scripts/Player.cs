@@ -31,6 +31,7 @@ public class Player : MonoBehaviour {
         {
             nextFire = Time.time + fireRate;
             Instantiate(shot, shotContent.position, shotContent.rotation);
+            GetComponent<AudioSource>().Play();
         }
     }
 
